@@ -1,0 +1,39 @@
+display_information:
+  name: API Search Bot
+  description: Slack API Integration Bot
+  background_color: "#666466"
+  long_description: Search and discover information from your API.\n• Quick access to resource information from inside a slack channel.\n• Notifications of changes to followed resources
+features:
+  app_home:
+    home_tab_enabled: true
+    messages_tab_enabled: true
+    messages_tab_read_only_enabled: false
+  bot_user:
+    display_name: API Search Bot
+    always_online: false
+  slash_commands:
+    - command: /search
+      url: https://your-ngrok-url.ngrok.io/slack/events/
+      description: Search API resources
+      should_escape: false
+oauth_config:
+  redirect_urls:
+    - https://your-ngrok-url.ngrok.io/slack/oauth/redirect
+  scopes:
+    bot:
+      - channels:history
+      - channels:read
+      - chat:write
+      - commands
+settings:
+  event_subscriptions:
+    request_url: https://your-ngrok-url.ngrok.io/slack/events/
+    bot_events:
+      - app_home_opened
+      - message.channels
+  interactivity:
+    is_enabled: true
+    request_url: https://your-ngrok-url.ngrok.io/slack/events/
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false

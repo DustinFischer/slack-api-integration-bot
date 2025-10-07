@@ -1,0 +1,11 @@
+# files
+.python-version
+.env
+.installations/
+
+# dirs
+venv/
+
+# misc
+.idea/
+__pycache__
